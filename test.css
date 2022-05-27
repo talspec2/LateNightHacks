@@ -1,17 +1,75 @@
+/* * {
+    margin: 0;
+}
+nav {
+    background: #dfdfdf;
+}
+.TitleAndNav {
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+}
+
+.navigation {
+    flex: 1;
+    display: flex;
+    justify-content: space-around;
+    align-items: stretch;
+    flex-flow: row nowrap;
+}
+.title {
+    font-size: 1.5rem;
+    flex: 1;
+}
+
+.navs {
+    text-decoration: none;
+    color: #333;
+    flex-grow: 1;
+    box-sizing: border-box;
+    transition: all .2s;
+    padding: 10px 5px;
+}
+
+.navs:hover {
+    background: #a2a2a2;
+    border: 2px solid #333;
+}
+
+#Timer,
+#Goals,
+#Lastweek,
+#Login {
+    margin-top: 100vh;
+    width: 100vw;
+    height: 20px;
+    background: #333;
+} */
 * {
     margin: 0;
 }
-
-div {
-    transform: translate(-50%, -50%);
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    display: flex;
-    width: 100px;
-    height: 100px;
-    border: 2px solid #333;
+.nav-bar {
     background: #dfdfdf;
+    padding: 20px;
+    list-style-type: none;
+    display:flex;
+    justify-content: flex-end;
     align-items: center;
-    justify-content: center;
+    flex-flow: row nowrap;
+    margin: 20px;
+}
+a {
+    text-decoration: none;
+    color: black;
+}
+
+.navs {
+    margin:0px 1rem;
+}
+/* .navs:hover {
+    background: #a2a2a2;
+} */
+
+.title {
+    margin-right: auto;
 }
