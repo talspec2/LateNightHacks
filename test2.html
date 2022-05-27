@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test2</title>
+    <link rel="stylesheet" href="test2.css">
+</head>
+<body>
+    <!-- navbar -->
+    <nav class="container">
+    <div class="navs title"><p>Pomodoro</p></div>
+    <div class="navs"><a href="#">Timer</a></div>
+    <div class="navs"><a href="#">Goals</a></div>
+    <div class="navs"><a href="#">History</a></div>
+    <div class="navs login"><a href="#">Login</a></div>
+    </nav>
+    <!-- form to start pomodoro -->
+    <section>
+        <form action="where to send info" class="form">
+            <p>Pomodoro setup</p>
+            
+            <label for="numSessions">Number of Sessions:</label>
+            <input type="number" id="numSessions" min="1" value="5"><p>min</p><br>
+            <label for="timeSession">Time Per Session</label>
+            <input type="number" id="timeSession" value="50" min="1"><p>min</p><br>
+            <label for="timeBreak">Time Per Break</label>
+            <input type="number" id="timeBreak" min="1" value="10"><p>min</p><br>
+            <input type="reset">
+            <input type="submit" value="Submit">
+            
+        </form>
+    </section>
+</body>
+</html>
