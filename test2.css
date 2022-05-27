@@ -1,6 +1,7 @@
 * {
     margin: 0;
     padding: 0;
+    font-family: 'Times New Roman', Times, serif;
 }
 
 .container {
@@ -49,6 +50,37 @@ input {
 form>p {
     display: inline;
 }
-.login:focus-within {
-    background: linear-gradient(red, orange)
+.creatorContainer {
+    background: #dfdfdf;
+    display: flex;
+    justify-content: space-around;
+    width: 100vw;
+    position: absolute;
+    bottom: 0;
+}
+
+.creators p {
+    text-decoration: underline;
+}
+
+.creators ul {
+    list-style-type: none;
+}
+
+/* login */
+.dropdownItem {
+    display: none;
+    position: absolute;
+    z-index: 1;
+    min-width: 200px;
+    box-shadow: 0px 1px 16px;
+    border: 2px solid black;
+}
+
+.dropdown:hover .dropdownItem {
+    display: block;
+} 
+.dropdown {
+    position: relative;
+    display: inline-block
 }
