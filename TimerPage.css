@@ -1,0 +1,191 @@
+/* universal */
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;    
+}
+
+/* navigation bar */
+.container {
+    display: flex;
+    width: 100vw;
+    height: 3rem;
+    justify-content: flex-end;
+    background-color: #dfdfdf;
+}
+
+.navsMain {
+    padding: 15px;
+    align-items: center;
+    display: flex;
+    justify-content: baseline;
+    transition: all .2s;
+    background: #a2a2a2;
+}
+
+.navs {
+    padding: 15px;
+    align-items: center;
+    display: flex;
+    justify-content: baseline;
+    transition: all .2s;
+}
+
+.navs:hover {
+    background: #a2a2a2;
+}
+a {
+    text-decoration: none;
+    color: black;
+}
+.title {
+    padding-left:20px;
+    font-size: 1.25rem;
+    margin-right:auto;
+    display: flex;
+    text-transform: uppercase;
+    justify-content: baseline;
+}
+
+/* Pomodoro setup */
+
+.form {
+    display: block;
+    margin: 20px;
+    padding: 20px;
+    border: 2px solid black;
+    text-align: center;
+}
+.inputs {
+    padding-bottom: 7px;
+    text-align: left;
+    text-indent: 2rem;
+}
+input {
+    width: 50px;
+}
+form>p {
+    display: inline;
+}
+.form-title {
+    display: inline-block;
+font-weight: bold;
+margin-bottom: 10px;
+}
+
+/* login dropdown*/
+.dropdownItem {
+    display: none;
+    position: absolute;
+    min-width: 150px;
+    z-index: 1;
+    box-shadow: 0px 1px 16px;
+    border: 2px solid black;
+    background: white;
+    top: 3rem;
+    left: 0rem;
+    padding:10px 10px 5px 5px;
+}
+
+.dropdown:hover .dropdownItem {
+    display: block;
+    
+} 
+.dropdown {
+    position: relative;
+    display: inline-block;
+} 
+
+/* pomodoro */
+.pomodoro {
+    border: 2px solid #333;
+    margin: 20px;
+    box-sizing: border-box;
+}
+.timer {
+    display: flex;
+}
+.clock {
+    box-sizing: border-box;
+    width: 60%;
+    min-height: 100px;
+    display: flex;
+    align-items: center;
+    flex-flow: column nowrap;
+    justify-content: center;
+
+}
+#clock {
+    font-size: 3rem;
+}
+.howManyDone {
+    min-height: 100px;
+    display: inline-block;
+    width: 40%;
+    border-left: 2px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #4a4a4a;
+}
+.howhowmany {
+    font-size: 3rem;
+}
+/* .actual-clock {
+    font-size: 4rem;
+    flex-flow: column nowrap;
+    text-decoration: underline;
+} */
+
+.state {
+    font-size: 1rem;
+    text-align: center;
+
+}
+
+.controls {
+    display: inline-block;
+    text-align: center;
+    width: 100%;
+    background: #dfdfdf;
+}
+.pause,
+.cancel {
+    display: inline-block;
+    text-align: center;
+    padding: 20px;
+    transition: .2s;
+}
+    .pause:hover,
+    .cancel:hover {
+        background: #a2a2a2;
+    }
+/* Footer */
+
+.creatorContainer {
+    background: #dfdfdf;
+    display: flex;
+    justify-content: space-around;
+    width: 100vw;
+    position: absolute;
+    bottom: 0;
+}
+
+.creators p {
+    text-decoration: underline;
+}
+
+.creators ul {
+    list-style-type: none;
+}
+
+@media screen and (min-width: 1100px) {
+#clock {
+    font-size: 160px;
+    font-weight: bold;
+}
+.howhowmany {
+    font-size: 80px;
+}
+}

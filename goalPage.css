@@ -1,0 +1,72 @@
+/* universal */
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Times New Roman', Times, serif;    
+}
+
+/* navigation bar */
+.container {
+    display: flex;
+    width: 100vw;
+    height: 3rem;
+    justify-content: flex-end;
+    background-color: #dfdfdf;
+}
+
+.navsMain {
+    padding: 15px;
+    align-items: center;
+    display: flex;
+    justify-content: baseline;
+    transition: all .2s;
+    background: #a2a2a2;
+}
+
+.navs {
+    padding: 15px;
+    align-items: center;
+    display: flex;
+    justify-content: baseline;
+    transition: all .2s;
+}
+
+.navs:hover {
+    background: #a2a2a2;
+}
+a {
+    text-decoration: none;
+    color: black;
+}
+.title {
+    padding-left:20px;
+    font-size: 1.25rem;
+    margin-right:auto;
+    display: flex;
+    text-transform: uppercase;
+    justify-content: baseline;
+}
+
+/* login dropdown*/
+.dropdownItem {
+    display: none;
+    position: absolute;
+    min-width: 150px;
+    z-index: 1;
+    box-shadow: 0px 1px 16px;
+    border: 2px solid black;
+    background: white;
+    top: 3rem;
+    left: 0rem;
+    padding:10px 10px 5px 5px;
+}
+
+.dropdown:hover .dropdownItem {
+    display: block;
+    
+} 
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
