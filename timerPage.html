@@ -10,17 +10,69 @@
 <body>
     <!-- simple timer function -->
     <script>
-        var clock = function() {
-            var btn = document.getElementById("clock")
-            var mins = parseInt(btn.getAttribute("value").substring(0,btn.getAttribute("value").indexOf(":")))
-            var secs = (btn.getAttribute("value").substring(btn.getAttribute("value").indexOf(":")+1))
-            console.log(secs)
-            for(let i = mins; i >= 0; i--) {
-                for(let j = secs; j >= 0; j--){
-                    console.log(mins + ":" + secs)
-                    setTimeout(() => {btn.setAttribute("value",(mins + ":" + secs).toString)},  1,000)
-                } 
+        function pause(){
+            var val = document.getElementById("pause").innerText
+            if(val == "Pause"){
+                document.getElementById("pause").innerText = "Play"
             }
+            else if(val == "Play"){
+                document.getElementById("pause").innerText = "Pause"
+                timer()
+            }
+        }
+        function runTimer(mins,secs) {
+            if((mins != 0 || secs != 0) && document.getElementById("pause").innerText != "Play"){
+                if(secs == 0){
+                    secs = secs + "0"
+                }
+                else if(secs < 10){
+                    secs = "0" + secs
+                }
+                document.getElementById("clock").innerText = mins + ":" + secs 
+                if(secs != 0) {
+                    secs -= 1
+                }
+                else{
+                    secs = 59
+                    mins -= 1
+                }
+                setTimeout(runTimer, 1000, mins, secs)
+            }
+        }
+        var timer = function() {
+            var btn = document.getElementById("clock")
+            var btntxt = btn.innerText
+            var mins = parseInt(btntxt.substring(0,btntxt.indexOf(":")))
+            var secs = parseInt(btntxt.substring(btntxt.indexOf(":")+1))
+            runTimer(mins,secs)
+            btntxt = "0:00"
+        }
+        function work(){
+            document.getElementById("clock").innerText = document.getElementById("timeSession").value.toString() + ":00"
+            timer()
+            setTimeout(wBreak,parseInt(document.getElementById("timeBreak").value) * 60000)
+        }
+        function wBreak(){
+            document.getElementById("clock").innerText = document.getElementById("timeBreak").value.toString() + ":00"
+            timer()
+        }
+        function fullcycle(i){
+            if(i != document.getElementById("numSessions").value){
+                work()
+                setTimeout(fullcycle,(parseInt(document.getElementById("timeBreak").value) + parseInt(document.getElementById("timeSession").value)) * 60000, i+1)
+                document.getElementById("amt").innerText = i + 1 + "/" + document.getElementById("numSessions").value    
+            }
+        }
+        function runcycle(){
+            fullcycle(0)
+        }
+        function resetTimer(){
+            pause()
+            document.getElementById("clock").innerText = document.getElementById("timeSession").value + ":00"
+            setAmt()
+        }
+        function setAmt(){
+            document.getElementById("amt").innerText = "0/" + document.getElementById("numSessions").value
         }
     </script>
     <!-- navbar -->
@@ -58,7 +110,7 @@
             <p class="form-title">Pomodoro setup</p><br>
             <div class="inputs">
                 <label for="numSessions">Number of Sessions:</label>
-                <input type="number" id="numSessions" min="1" value="5"> min
+                <input type="number" id="numSessions" min="1" value="5"> amt
             </div>
             <div class="inputs">
                 <label for="timeSession">Time Per Session</label>
@@ -69,8 +121,8 @@
                 <input type="number" id="timeBreak" min="1" value="10"> min
             </div>
             <div class="inputs">
-                <input type="reset">
-                <input type="submit" value="Submit" onclick= "timer(document.getElementById(numSessions).value,document.getElementById(timeSession).value,document.getElementById(timeBreak).value);" >
+                <input type="reset" onclick= "resetTimer()">
+                <input type="submit" value="Submit" onclick= "setAmt(); runcycle()">
             </div>
 
             
@@ -83,10 +135,10 @@
         <div class="timer"> 
             <div class="clock">
                 <div id = "clock"><div>15:00</div><div class="state">(Break)</div></div>
-            </div><div class="howManyDone"><div class="howhowmany">0/9</div></div>
+            </div><div class="howManyDone"><div class="howhowmany">0/5</div></div>
         </div>
         <div class="controls">
-            <div class="pause"><p>Pause</p></div><div class="cancel"><p>Cancel</p></div>
+            <div class="pause" id = "pause" style = "cursor: pointer" onclick = "pause()"><p>Pause</p></div><div class="cancel"><p>Cancel</p></div>
         </div>
     </div>
     </section>
@@ -106,12 +158,12 @@
                 <li>Github: EfrenHaskell</li>
             </ul>
         </div>
-        <div class="creators">
+        <!-- <div class="creators">
             <p>Tal Spector</p>
             <ul>
                 <li>Github:talspec2</li>
             </ul>
-        </div>
+        </div> -->
     </div>
     </footer>
 </body>
